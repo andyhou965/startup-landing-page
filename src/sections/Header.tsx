@@ -1,6 +1,13 @@
 import LogoIcon from "@/assets/logo.svg";
 import MenuIcon from "@/assets/icon-menu.svg";
 
+const navItems = [
+  { name: "Features", href: "#" },
+  { name: "Developers", href: "#" },
+  { name: "Pricing", href: "#" },
+  { name: "Changelog", href: "#" },
+];
+
 export const Header = () => {
   return (
     <header className="py-4 border-b border-white/15 md:border-none">
@@ -13,18 +20,15 @@ export const Header = () => {
           </div>
           <div className="hidden md:block">
             <nav className="flex gap-8 text-sm">
-              <a href="#" className="text-white/70 hover:text-white transition">
-                Home
-              </a>
-              <a href="#" className="text-white/70 hover:text-white transition">
-                Features
-              </a>
-              <a href="#" className="text-white/70 hover:text-white transition">
-                Pricing
-              </a>
-              <a href="#" className="text-white/70 hover:text-white transition">
-                Contact
-              </a>
+              {navItems.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.href}
+                  className="text-white/70 hover:text-white transition"
+                >
+                  {item.name}
+                </a>
+              ))}
             </nav>
           </div>
           <div className="flex gap-4 items-center">
